@@ -1,0 +1,55 @@
+{% extends "layouts.html" %}
+{% block content %}
+
+<body class="text-center">
+
+  <div class="container-fluid">
+  <div class="row">
+
+  <main role="main" class="col-md-12 ml-sm-auto col-lg-10 px-md-4">
+    <br><br>
+
+    <h3> Business Rules :{{year}} </h3
+
+
+      <br><br>
+
+
+<!-- bar chart canvas element -->
+<div class="ct-chart"></div>
+<h5> State Code </h5>
+
+</main>
+</div></div>
+<script>
+
+    console.log({{year}})
+    var getData = $.get('/datas/{{year}}');
+
+    getData.done(function(results){
+
+          var data={
+            labels: results.sc,
+            series: [
+              results.ns
+            ]
+          };
+          var options = {
+            width: 1000,
+            height: 500
+          };
+          //console.log(values)
+
+          new Chartist.Line('.ct-chart', data, options);
+
+
+
+    });
+
+
+
+
+</script>
+</body>
+
+{% endblock content %}
