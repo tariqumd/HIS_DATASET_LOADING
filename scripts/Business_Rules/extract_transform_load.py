@@ -68,6 +68,7 @@ try:
                 #fdate=row['ImportDate'].split(" ")[0].split("-")
                 #print(fdate[0],fdate[1],fdate[2])
                 #dat=date(int(fdate[0]),int(fdate[1]),int(fdate[2]))
+
                 dat= parse(row['ImportDate'])
                 row['ImportDate']=dat
                 try:
